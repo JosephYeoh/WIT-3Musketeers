@@ -1,0 +1,35 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es2015",
+        "noImplicitAny": false,
+        "resolveJsonModule": true,
+        "outDir": "build",
+        "strict": true,
+        "noImplicitReturns": true,
+        "forceConsistentCasingInFileNames": true,
+        "sourceMap": true,
+        "noEmit": true,
+        "rootDir": "src",
+        "allowSyntheticDefaultImports": true,
+        "allowJs": true,
+        "esModuleInterop": true,                   /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
+        "jsx": "preserve",
+        "lib": ["esnext"],
+        "moduleResolution": "node",            /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
+        "baseUrl": "./",
+        "paths": {
+            "src/*": ["src/*"],
+        }
+    },
+    "exclude": [
+        "build",
+        "node_modules/**",
+        "jest.config.js",
+        "src/AppEntry.ts"
+    ],
+    "compileOnSave": false,
+    "include": [
+        "src"
+    ]
+}

@@ -1,0 +1,71 @@
+{
+	"defaultSeverity": "warning",
+	"extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+	"linterOptions": {
+		"exclude": [
+			"node_modules/**",
+			"templates/**"
+		]
+	},
+	"rulesDirectory": [
+		"tslint-plugin-prettier"
+	],
+	"rules": {
+		// Errors
+		"curly": { "severity": "error", "options": "ignore-same-line" },
+		"jsx-key": { "severity": "error" },
+		"no-duplicate-switch-case": { "severity": "error" },
+		"no-parameter-reassignment": { "severity": "error" },
+		"no-shadowed-variable": { "severity": "error" },
+		"no-switch-case-fall-through": { "severity": "error" },
+
+		// Warnings
+		// (Note: any rules from the presets listed in the `extends` field will also be set to
+		// `warning` unless otherwise specified)
+		"jsx-boolean-value": [true, "never"],
+		"no-empty": [true, "allow-empty-functions"],
+		"variable-name": [true, "allow-pascal-case", "allow-leading-underscore"],
+		"whitespace": [
+			true,
+			"check-branch",
+			"check-decl",
+			"check-operator",
+			"check-module",
+			"check-separator",
+			"check-rest-spread",
+			"check-type",
+			"check-typecast",
+			"check-type-operator",
+			"check-preblock"
+		],
+
+		// Disabled rules
+		"array-type": false,
+		"interface-name": false,
+		"jsx-no-lambda": false,
+		"max-classes-per-file": false,
+		"member-access": false,
+		"no-console": false,
+		"no-empty-interface": false,
+		"no-namespace": false,
+		"no-unused-variable": false,
+		"object-literal-sort-keys": false,
+		"ordered-imports": false,
+
+		// Settings for prettier
+		"prettier": [
+			true,
+			{
+				"printWidth": 100,
+				"useTabs": true,
+				"tabWidth": 4,
+				"semi": true,
+				"singleQuote": true,
+				"jsxSingleQuote": false,
+				"trailingComma": "all",
+				"bracketSpacing": true,
+				"arrowParens": "avoid"
+			}
+		]
+	}
+}
