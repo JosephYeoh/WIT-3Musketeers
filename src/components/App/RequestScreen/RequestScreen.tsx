@@ -1,10 +1,12 @@
+import { Ionicons } from '@expo/vector-icons';
 import * as React from 'react';
-import { Button, Text, View, StatusBar, ActivityIndicator } from 'react-native';
-import styles from './RequestScreen.styles';
+import { ActivityIndicator, Text, View } from 'react-native';
 import { NavScreenProps, StaticNavigationOptions } from 'src/lib/navigation';
-import LiveRequestPage from './LiveRequestPage';
-import ActivityListPage from './ActivityListPage';
+import ChatScreen from '../ChatScreen';
 import CustomButton from '../CustomButton';
+import ActivityListPage from './ActivityListPage';
+import LiveRequestPage from './LiveRequestPage';
+import { primary } from 'src/constants/Colors';
 
 interface NavParams {}
 type Props = NavScreenProps<NavParams>;
@@ -19,6 +21,7 @@ export interface ActivityCardDetails {
 	name: string;
 	description: string;
 	location: string;
+	completed: boolean;
 }
 class RequestScreen extends React.Component<Props, State> {
 	static navigationOptions: StaticNavigationOptions<{}> = props => ({
@@ -28,10 +31,20 @@ class RequestScreen extends React.Component<Props, State> {
 		status: 'none',
 		isHelpee: true,
 		cardsData: [
-			{ description: 'descp', location: 'kingsford', name: 'Sabrina', title: 'title' },
-			{ description: 'descp3', location: 'kingsford', name: 'Joseph', title: 'title2' },
-			{ description: 'descp4', location: 'kingsford', name: 'Isabele', title: 'title3' },
-			{ description: 'desc5', location: 'kingsford', name: 'Meiyan', title: 'title4' },
+			{
+				description: '',
+				location: 'CBD',
+				name: 'Jean',
+				title: 'Help assembling table',
+				completed: true,
+			},
+			{
+				description: 'It is too heavy for me.',
+				location: 'Wollicreek',
+				name: 'Adam',
+				title: 'Help carry grocery',
+				completed: true,
+			},
 		],
 	};
 
@@ -41,11 +54,15 @@ class RequestScreen extends React.Component<Props, State> {
 			const newData = [card, ...state.cardsData];
 			this.setState({ cardsData: newData, status: 'waiting' });
 		};
-		console.log({ state });
-		const acceptRequest = () => this.setState({ status: 'accepted' });
+		const acceptRequest = () => {
+			state.cardsData[0].completed = true;
+			this.setState({ status: 'accepted', cardsData: state.cardsData });
+		};
+		const completeRequest = () => this.setState({ status: 'none' });
 		return (
 			<View style={{ flex: 1 }}>
 				<CustomButton
+					isHelpee={state.isHelpee}
 					size={'small'}
 					buttonName="Swap Context"
 					onPress={() => this.setState({ isHelpee: !state.isHelpee })}
@@ -53,9 +70,10 @@ class RequestScreen extends React.Component<Props, State> {
 				{state.isHelpee ? (
 					<>
 						{state.status === 'accepted' ? (
-							<View>
-								<Text>Accepted</Text>
-							</View>
+							<ChatScreen
+								isHelpee={state.isHelpee}
+								completeRequest={completeRequest}
+							/>
 						) : (
 							<>
 								{state.status === 'waiting' ? (
@@ -64,8 +82,29 @@ class RequestScreen extends React.Component<Props, State> {
 											flex: 1,
 											justifyContent: 'center',
 											alignItems: 'center',
+											flexDirection: 'column',
 										}}
 									>
+										<View>
+											<View style={{ flexDirection: 'row' }}>
+												<Text
+													style={{
+														margin: 10,
+														fontSize: 16,
+														fontWeight: '700',
+														justifyContent: 'center',
+														alignContent: 'center',
+													}}
+												>
+													Please wait for a kind helpie.
+												</Text>
+												<Ionicons
+													name="ios-happy"
+													size={30}
+													color={primary}
+												/>
+											</View>
+										</View>
 										<ActivityIndicator />
 									</View>
 								) : (
@@ -77,9 +116,10 @@ class RequestScreen extends React.Component<Props, State> {
 				) : (
 					<>
 						{state.status === 'accepted' ? (
-							<View>
-								<Text>Accepted</Text>
-							</View>
+							<ChatScreen
+								isHelpee={state.isHelpee}
+								completeRequest={completeRequest}
+							/>
 						) : (
 							<ActivityListPage
 								cardsData={state.cardsData}

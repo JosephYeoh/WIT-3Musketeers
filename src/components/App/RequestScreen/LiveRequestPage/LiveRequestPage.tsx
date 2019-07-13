@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Button, Text, View, TouchableOpacity } from 'react-native';
 import styles from './LiveRequestPage.styles';
-import { TextInput } from 'react-native-gesture-handler';
+import { TextInput, ScrollView } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import { ActivityCardDetails } from '../RequestScreen';
+import { primary } from 'src/constants/Colors';
 
 export interface Props {
 	addToData: (card: ActivityCardDetails) => void;
@@ -26,10 +27,10 @@ class LiveRequestPage extends React.Component<Props, State> {
 		const { state, props } = this;
 		const { description, location, title } = state;
 		return (
-			<View style={styles.container}>
+			<ScrollView keyboardDismissMode={'on-drag'} style={styles.container}>
 				<Text style={styles.header}>Request Form</Text>
 				<View style={styles.icon}>
-					<Ionicons name="logo-snapchat" size={35} color={'black'} />
+					<Ionicons name="md-checkbox" size={35} color={primary} />
 
 					<View style={styles.textbox}>
 						<TextInput
@@ -44,7 +45,7 @@ class LiveRequestPage extends React.Component<Props, State> {
 					</View>
 				</View>
 				<View style={styles.icon}>
-					<Ionicons name="md-pricetags" size={35} color={'black'} />
+					<Ionicons name="md-list" size={35} color={primary} />
 
 					<View style={styles.textbox}>
 						<TextInput
@@ -59,7 +60,7 @@ class LiveRequestPage extends React.Component<Props, State> {
 					</View>
 				</View>
 				<View style={styles.icon}>
-					<Ionicons name="md-pin" size={35} color={'black'} />
+					<Ionicons name="md-pin" size={35} color={primary} />
 
 					<View style={styles.textbox}>
 						<TextInput
@@ -77,13 +78,19 @@ class LiveRequestPage extends React.Component<Props, State> {
 					<TouchableOpacity
 						style={styles.button}
 						onPress={() =>
-							props.addToData({ description, title, location, name: 'ALice' })
+							props.addToData({
+								description,
+								title,
+								location,
+								name: 'Travis Langg',
+								completed: false,
+							})
 						}
 					>
 						<Text style={styles.submit}>Submit</Text>
 					</TouchableOpacity>
 				</View>
-			</View>
+			</ScrollView>
 		);
 	}
 }

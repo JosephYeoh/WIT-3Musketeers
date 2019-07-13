@@ -1,5 +1,5 @@
 import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
-import { whiteOffset } from 'src/constants/Colors';
+import { whiteOffset, primary, white } from 'src/constants/Colors';
 
 export default StyleSheet.create({
 	container: {
@@ -34,7 +34,7 @@ export default StyleSheet.create({
 		justifyContent: 'center',
 	},
 	button: {
-		backgroundColor: 'lightblue',
+		backgroundColor: primary,
 		marginBottom: 35,
 		borderRadius: 12,
 		padding: 35,
@@ -44,7 +44,8 @@ export default StyleSheet.create({
 		justifyContent: 'center',
 	},
 	submit: {
-		fontSize: 18,
+		fontSize: 25,
+		color: 'white',
 		fontWeight: '500',
 	},
 });

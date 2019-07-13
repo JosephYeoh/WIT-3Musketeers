@@ -1,5 +1,5 @@
 import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
-import { mildGrey, white, whiteOffset, fadedGrey } from 'src/constants/Colors';
+import { mildGrey, white, whiteOffset, fadedGrey, primary } from 'src/constants/Colors';
 
 export default StyleSheet.create({
 	isLeftBox: {
@@ -17,7 +17,7 @@ export default StyleSheet.create({
 		paddingHorizontal: 18,
 		margin: 2,
 		borderRadius: 24,
-		backgroundColor: 'lightblue',
+		backgroundColor: primary,
 		alignSelf: 'flex-end',
 	},
 	isRightText: {

@@ -5,10 +5,11 @@ import { NavScreenProps } from 'src/lib/navigation';
 import { TextInput } from 'react-native-gesture-handler';
 import CustomTextInput from './CustomTextInput';
 import { Ionicons } from '@expo/vector-icons';
+import { primary } from 'src/constants/Colors';
 
-interface NavParams {}
-type Props = NavScreenProps<NavParams>;
-
+interface Props {
+	handlePress: () => void;
+}
 export interface State {}
 
 class LoginScreen extends React.Component<Props, State> {
@@ -21,11 +22,11 @@ class LoginScreen extends React.Component<Props, State> {
 				<View style={styles.logoWrapper}>
 					<Text
 						style={{
-							fontSize: 30,
+							fontSize: 40,
 							fontStyle: 'italic',
 							fontWeight: 'bold',
 							textAlign: 'center',
-							color: '#ff6347',
+							color: primary,
 						}}
 					>
 						Helpie
@@ -47,7 +48,7 @@ class LoginScreen extends React.Component<Props, State> {
 						<CustomTextInput isuser={false} />
 					</View>
 					<View style={styles.LgPos}>
-						<TouchableOpacity onPress={() => this.setState({})}>
+						<TouchableOpacity onPress={props.handlePress}>
 							<View style={styles.LogInIcon}>
 								<Text style={styles.LgText}>Log in</Text>
 								<View

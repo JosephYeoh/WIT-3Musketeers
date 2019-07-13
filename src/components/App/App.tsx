@@ -5,7 +5,7 @@ import {
 	createBottomTabNavigator,
 	createStackNavigator,
 } from 'react-navigation';
-import { mildGrey, white, success } from 'src/constants/Colors';
+import { mildGrey, white, success, primary } from 'src/constants/Colors';
 import { makeTab, stackNavOptions } from 'src/lib/navigation';
 import appRoutes from './App.routes';
 
@@ -15,15 +15,15 @@ const AppContainer = createAppContainer(
 			tabs: {
 				screen: createBottomTabNavigator(
 					{
-						LoginTab: makeTab('login', [appRoutes.login]),
-						RequestTab: makeTab('contacts', [appRoutes.request]),
-						ChatTab: makeTab('menu', [appRoutes.chat]),
-						ProfileTab: makeTab('menu', [appRoutes.profile]),
+						// LoginTab: makeTab('login', [appRoutes.login]),
+						RequestTab: makeTab('clipboard', [appRoutes.request]),
+						// ChatTab: makeTab('menu', [appRoutes.chat]),
+						ProfileTab: makeTab('person', [appRoutes.profile]),
 					},
 					{
 						tabBarOptions: {
 							showLabel: false,
-							activeTintColor: success,
+							activeTintColor: primary,
 							inactiveTintColor: mildGrey,
 						},
 					},

@@ -26,6 +26,7 @@ class ProfileScreen extends React.Component<Props, State> {
 		return (
 			<View style={styles.container}>
 				<CustomButton
+					isHelpee={state.isHelpee}
 					buttonName={'Swap Context'}
 					size={'small'}
 					onPress={() => this.setState({ isHelpee: !state.isHelpee })}

@@ -2,10 +2,11 @@ import { Ionicons } from '@expo/vector-icons';
 import * as React from 'react';
 import { KeyboardAvoidingView, ScrollView, TouchableOpacity, View } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
-import { whiteOffset } from 'src/constants/Colors';
+import { whiteOffset, primary } from 'src/constants/Colors';
 import ChatEntry from './ChatEntry';
 export interface Props {
 	isHelpee: boolean;
+	completeRequest: () => void;
 }
 
 export interface ConvoData {
@@ -22,21 +23,6 @@ interface State {
 class ChatPage extends React.Component<Props, State> {
 	state: State = {
 		convoData: [
-			{ name: 'Alice', text: 'Hello', isHelpee: true },
-			{ name: 'Alice', text: 'Hello', isHelpee: true },
-			{ name: 'Alice', text: 'Hello', isHelpee: true },
-			{ name: 'Alice', text: 'Hello', isHelpee: true },
-			{ name: 'Alice', text: 'Hello', isHelpee: true },
-			{ name: 'Alice', text: 'Hello', isHelpee: true },
-			{ name: 'Alice', text: 'Hello', isHelpee: true },
-			{ name: 'Alice', text: 'Hello', isHelpee: true },
-			{ name: 'Alice', text: 'Hello', isHelpee: true },
-			{ name: 'Alice', text: 'Hello', isHelpee: true },
-			{ name: 'Alice', text: 'Hello', isHelpee: true },
-			{ name: 'Alice', text: 'Hello', isHelpee: true },
-			{ name: 'Alice', text: 'Hello', isHelpee: true },
-			{ name: 'Alice', text: 'Hello', isHelpee: true },
-			{ name: 'Alice', text: 'Hello', isHelpee: true },
 			{ name: 'Alice', text: 'Hello', isHelpee: true },
 			{ name: 'Bob', text: 'Hi', isHelpee: false },
 		],
@@ -80,6 +66,16 @@ class ChatPage extends React.Component<Props, State> {
 						justifyContent: 'space-between',
 					}}
 				>
+					{props.isHelpee && (
+						<TouchableOpacity
+							style={{ alignItems: 'center', justifyContent: 'center', margin: 4 }}
+							onPress={props.completeRequest}
+						>
+							<View style={{ marginTop: 6, marginRight: 6 }}>
+								<Ionicons name="md-checkbox" size={44} color={primary} />
+							</View>
+						</TouchableOpacity>
+					)}
 					<TextInput
 						style={{
 							flex: 1,
@@ -98,7 +94,7 @@ class ChatPage extends React.Component<Props, State> {
 						onPress={handlePress}
 					>
 						<View style={{ marginTop: 6, marginRight: 6 }}>
-							<Ionicons name="ios-send" size={44} color="#4285F4" />
+							<Ionicons name="ios-send" size={44} color={primary} />
 						</View>
 					</TouchableOpacity>
 				</View>

@@ -1,10 +1,11 @@
 import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
+import { primary } from 'src/constants/Colors';
 
 export default StyleSheet.create({
 	container: {
 		alignItems: 'center',
 		borderBottomWidth: 1,
-		borderColor: 'lightblue',
+		borderColor: primary,
 		paddingBottom: 6,
 		margin: 6,
 	},

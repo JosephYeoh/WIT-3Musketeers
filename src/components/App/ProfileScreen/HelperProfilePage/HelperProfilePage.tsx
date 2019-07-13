@@ -30,13 +30,12 @@ class HelperProfilePage extends React.Component<Props, State> {
 								borderRadius: 70,
 							}}
 							source={{
-								uri:
-									'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png',
+								uri: 'https://i.pravatar.cc/300?img=5',
 							}}
 						/>
 					</View>
 					<View style={{ flexDirection: 'row' }}>
-						<Text style={styles.text}>William Soon</Text>
+						<Text style={styles.text}>Sarah Gothams</Text>
 						<View
 							style={{
 								paddingHorizontal: 10,
@@ -61,9 +60,9 @@ class HelperProfilePage extends React.Component<Props, State> {
 					</View>
 				</View>
 				{renderDetails('Contact', '0424123512')}
-				{renderDetails('Points', '10')}
-				{renderDetails('Trustability', '95')}
-				{renderDetails('High frequency location', 'Sydney')}
+				{renderDetails('Points', '2032 helpoints')}
+				{renderDetails('Completion rate', '85%')}
+				{renderDetails('Location', 'around Sydney')}
 			</ScrollView>
 		);
 	}
@@ -80,7 +79,7 @@ const renderDetails = (title: string, value: string) => (
 		<Text style={{ fontWeight: '700', fontSize: 18 }}>{title}:</Text>
 		<Text
 			style={{
-				color: mildGrey,
+				color: 'lightgreen',
 				padding: 4,
 				paddingLeft: 34,
 				fontSize: 16,

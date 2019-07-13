@@ -12,3 +12,5 @@ export const mildGrey = '#a6adb0'; // App level stack nav inactive
 export const fadedGrey = '#8392A7'; // Mid block/button color
 export const darkGrey = '#283a4a'; // Dark block color
 export const black = '#131415'; //
+
+export const primary = '#ff6347';

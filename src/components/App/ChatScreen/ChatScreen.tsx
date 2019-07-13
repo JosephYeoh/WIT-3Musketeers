@@ -4,31 +4,20 @@ import { View } from 'react-native';
 import CustomButton from '../CustomButton';
 import ChatPage from './ChatPage';
 
-interface NavParams {}
-type Props = NavScreenProps<NavParams>;
-
-export interface State {
+interface Props {
 	isHelpee: boolean;
+	completeRequest: () => void;
 }
+export interface State {}
 
 class ChatScreen extends React.Component<Props, State> {
-	static navigationOptions: StaticNavigationOptions<{}> = props => ({
-		headerTitle: 'Chat',
-	});
-	state = {
-		isHelpee: true,
-	};
+	state = {};
 
 	render() {
 		const { state, props } = this;
 		return (
 			<View style={{ flex: 1 }}>
-				<CustomButton
-					size={'small'}
-					buttonName="Swap Context"
-					onPress={() => this.setState({ isHelpee: !state.isHelpee })}
-				/>
-				<ChatPage isHelpee={state.isHelpee} />
+				<ChatPage isHelpee={props.isHelpee} completeRequest={props.completeRequest} />
 			</View>
 		);
 	}

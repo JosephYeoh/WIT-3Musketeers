@@ -4,6 +4,7 @@ import styles from './ActivityListPage.styles';
 import CustomButton from '../../CustomButton';
 import ActivityCard from './ActivityCard';
 import { ActivityCardDetails } from '../RequestScreen';
+import { whiteOffset } from 'src/constants/Colors';
 
 export interface Props {
 	cardsData: ActivityCardDetails[];
@@ -19,11 +20,20 @@ class ActivityListPage extends React.Component<Props, State> {
 		const { state, props } = this;
 
 		return (
-			<ScrollView style={styles.container}>
-				{props.cardsData.map((card, key) => (
-					<ActivityCard key={key} cardData={card} acceptRequest={props.acceptRequest} />
-				))}
-			</ScrollView>
+			<>
+				<View style={{ backgroundColor: whiteOffset }}>
+					<Text style={styles.header}>Activities List</Text>
+				</View>
+				<ScrollView style={styles.container}>
+					{props.cardsData.map((card, key) => (
+						<ActivityCard
+							key={key}
+							cardData={card}
+							acceptRequest={props.acceptRequest}
+						/>
+					))}
+				</ScrollView>
+			</>
 		);
 	}
 }

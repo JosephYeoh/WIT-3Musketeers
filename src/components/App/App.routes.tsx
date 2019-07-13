@@ -6,10 +6,10 @@ import ProfileScreen from './ProfileScreen';
 import LoginScreen from './LoginScreen';
 
 const appRoutes = {
-	landing: makeRoute('landing', LandingScreen),
-	login: makeRoute('login', LoginScreen),
-	request: makeRoute('request', RequestScreen),
-	chat: makeRoute('chat', ChatScreen),
+	// landing: makeRoute('landing', LandingScreen),
+	// login: makeRoute('login', LoginScreen),
+	request: makeRoute('checkbox', RequestScreen),
+	// chat: makeRoute('chat', ChatScreen),
 	profile: makeRoute('profile', ProfileScreen),
 };
 

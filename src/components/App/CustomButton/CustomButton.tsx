@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { Button, Text, View, TouchableOpacity } from 'react-native';
 import styles from './CustomButton.styles';
+import { primary, white } from 'src/constants/Colors';
 
 export interface Props {
 	buttonName: string;
 	size: 'small' | 'medium' | 'large';
 	onPress: () => void;
+	isHelpee: boolean;
 }
 
 export interface State {}
@@ -30,9 +32,15 @@ class CustomButton extends React.Component<Props, State> {
 		return (
 			<TouchableOpacity
 				onPress={props.onPress}
-				style={{ backgroundColor: 'lightblue', paddingVertical: 8, paddingHorizontal: 16 }}
+				style={{
+					backgroundColor: props.isHelpee ? primary : 'lightgreen',
+					paddingVertical: 10,
+					paddingHorizontal: 16,
+				}}
 			>
-				<Text style={{ fontWeight: '500', fontSize }}>{props.buttonName}</Text>
+				<Text style={{ fontWeight: '500', fontSize, color: white }}>
+					{props.buttonName}
+				</Text>
 			</TouchableOpacity>
 		);
 	}

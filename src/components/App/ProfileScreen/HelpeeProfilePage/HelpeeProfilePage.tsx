@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Button, Text, View, Image, ImageBackground, ScrollView } from 'react-native';
 import styles from './HelpeeProfilePage.styles';
-import { white, mildGrey } from 'src/constants/Colors';
+import { white, mildGrey, primary } from 'src/constants/Colors';
 
 export interface Props {}
 
@@ -19,7 +19,7 @@ class HelpeeProfilePage extends React.Component<Props, State> {
 						style={{
 							margin: 4,
 							padding: 4,
-							backgroundColor: 'lightblue',
+							backgroundColor: primary,
 							borderRadius: 2000,
 						}}
 					>
@@ -30,13 +30,12 @@ class HelpeeProfilePage extends React.Component<Props, State> {
 								borderRadius: 70,
 							}}
 							source={{
-								uri:
-									'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png',
+								uri: 'https://i.pravatar.cc/300?img=11',
 							}}
 						/>
 					</View>
 					<View style={{ flexDirection: 'row' }}>
-						<Text style={styles.text}>William Soon</Text>
+						<Text style={styles.text}>Travis Langg</Text>
 						<View
 							style={{
 								paddingHorizontal: 10,
@@ -44,14 +43,14 @@ class HelpeeProfilePage extends React.Component<Props, State> {
 								borderRadius: 200,
 								alignItems: 'center',
 								justifyContent: 'center',
-								borderColor: 'lightblue',
+								borderColor: primary,
 								borderWidth: 1,
 							}}
 						>
 							<Text
 								style={{
 									textAlign: 'center',
-									color: 'lightblue',
+									color: primary,
 									fontWeight: '500',
 								}}
 							>
@@ -61,8 +60,8 @@ class HelpeeProfilePage extends React.Component<Props, State> {
 					</View>
 				</View>
 				{renderDetails('Contact', '0424123512')}
-				{renderDetails('Emergency', '123')}
-				{renderDetails('Medical Conditions', '...')}
+				{renderDetails('Emergency', '0432123422')}
+				{renderDetails('Medical Conditions', 'Depression and social anxiety')}
 				{renderDetails('Age', '23')}
 			</ScrollView>
 		);
@@ -80,7 +79,7 @@ const renderDetails = (title: string, value: string) => (
 		<Text style={{ fontWeight: '700', fontSize: 18 }}>{title}:</Text>
 		<Text
 			style={{
-				color: mildGrey,
+				color: primary,
 				padding: 4,
 				paddingLeft: 34,
 				fontSize: 16,

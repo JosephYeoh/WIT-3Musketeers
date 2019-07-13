@@ -1,10 +1,12 @@
 import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
+import { primary } from 'src/constants/Colors';
 
 export default StyleSheet.create({
 	container: {
 		flex: 1,
 		// backgroundColor: 'pink',
-		margin: 25,
+		margin: 30,
+		marginTop: 50,
 		borderRadius: 12,
 	},
 	logoWrapper: {
@@ -27,7 +29,7 @@ export default StyleSheet.create({
 	},
 	LgPos: {
 		flex: 1,
-		backgroundColor: '#ff6347',
+		backgroundColor: primary,
 		margin: 10,
 		borderRadius: 12,
 		alignSelf: 'center',

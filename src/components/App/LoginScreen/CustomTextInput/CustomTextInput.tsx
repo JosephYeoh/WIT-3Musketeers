@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Button, Text, View, TextInput } from 'react-native';
 import styles from './CustomTextInput.styles';
 
-
 export interface Props {
 	isuser: boolean;
 }
@@ -13,7 +12,7 @@ export interface State {
 
 class CustomTextInput extends React.Component<Props, State> {
 	state = {
-		text: '',
+		text: this.props.isuser ? 'Helpie123' : 'Pass1234',
 	};
 
 	render() {
@@ -36,4 +35,3 @@ class CustomTextInput extends React.Component<Props, State> {
 }
 
 export default CustomTextInput;
-

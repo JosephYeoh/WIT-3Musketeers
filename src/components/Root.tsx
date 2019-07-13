@@ -1,6 +1,7 @@
 import React from 'react';
 import { StatusBar, View, Text } from 'react-native';
 import App from './App';
+import LoginScreen from './App/LoginScreen';
 
 // TODO: SafeAreaView for iPhone X notch etc.?
 
@@ -11,7 +12,7 @@ interface State {
 
 class Root extends React.Component<Props, State> {
 	state = {
-		loggedIn: true,
+		loggedIn: false,
 	};
 
 	render() {
@@ -23,9 +24,7 @@ class Root extends React.Component<Props, State> {
 						<App />
 					</>
 				) : (
-					<View>
-						<Text>123</Text>
-					</View>
+					<LoginScreen handlePress={() => this.setState({ loggedIn: true })} />
 				)}
 			</>
 		);
