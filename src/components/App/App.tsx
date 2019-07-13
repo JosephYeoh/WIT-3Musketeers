@@ -15,10 +15,9 @@ const AppContainer = createAppContainer(
 			tabs: {
 				screen: createBottomTabNavigator(
 					{
-						contactsTab: makeTab('contacts', [appRoutes.landing]),
-						menuTab: makeTab('menu', [appRoutes.landing]),
-						menu1Tab: makeTab('menu', [appRoutes.landing]),
-						menu2Tab: makeTab('menu', [appRoutes.landing]),
+						RequestTab: makeTab('contacts', [appRoutes.request]),
+						ChatTab: makeTab('menu', [appRoutes.chat]),
+						ProfileTab: makeTab('menu', [appRoutes.profile]),
 					},
 					{
 						tabBarOptions: {
