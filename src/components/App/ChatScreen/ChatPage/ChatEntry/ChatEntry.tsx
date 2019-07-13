@@ -16,13 +16,23 @@ class ChatEntry extends React.Component<Props, State> {
 
 	render() {
 		const { state, props } = this;
-		return (
-			<View style={props.isRight ? styles.isRightBox : styles.isLeftBox}>
-				<Text style={props.isRight ? styles.isRightText : styles.isLeftText}>
-					{props.data.text}
-				</Text>
-			</View>
-		);
+		if (props.data.isHelpee) {
+			return (
+				<View style={props.isRight ? styles.isRightBox : styles.isLeftBox}>
+					<Text style={props.isRight ? styles.isRightText : styles.isLeftText}>
+						{props.data.text}
+					</Text>
+				</View>
+			);
+		} else {
+			return (
+				<View style={props.isRight ? styles.isRightHelperBox : styles.isLeftBox}>
+					<Text style={props.isRight ? styles.isRightHelperText : styles.isLeftText}>
+						{props.data.text}
+					</Text>
+				</View>
+			);
+		}
 	}
 }
 

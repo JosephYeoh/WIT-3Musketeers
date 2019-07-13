@@ -20,6 +20,19 @@ export default StyleSheet.create({
 		backgroundColor: primary,
 		alignSelf: 'flex-end',
 	},
+	isRightHelperBox: {
+		flex: 1,
+		paddingVertical: 12,
+		paddingHorizontal: 18,
+		margin: 2,
+		borderRadius: 24,
+		backgroundColor: 'lightgreen',
+		alignSelf: 'flex-end',
+	},
+	isRightHelperText: {
+		fontSize: 16,
+		fontWeight: '400',
+	},
 	isRightText: {
 		fontSize: 16,
 		fontWeight: '400',
