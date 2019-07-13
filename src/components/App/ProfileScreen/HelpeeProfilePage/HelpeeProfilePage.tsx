@@ -13,7 +13,7 @@ class HelpeeProfilePage extends React.Component<Props, State> {
 		const { state, props } = this;
 		return (
 			<View style={styles.container}>
-				<Text>Helpee Profile Page</Text>
+				<Text style={styles.text}>Helpee Profile Page</Text>
 			</View>
 		);
 	}

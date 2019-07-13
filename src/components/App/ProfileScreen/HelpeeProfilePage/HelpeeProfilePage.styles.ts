@@ -4,4 +4,8 @@ export default StyleSheet.create({
 	container: {
 		//
 	},
+	text: {
+		fontSize: 12,
+		backgroundColor: 'red',
+	},
 });
