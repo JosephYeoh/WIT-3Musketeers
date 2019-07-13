@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Button, Text, View } from 'react-native';
 import styles from './ProfileScreen.styles';
-import { NavScreenProps } from 'src/lib/navigation';
+import { NavScreenProps, StaticNavigationOptions } from 'src/lib/navigation';
 import HelpeeProfilePage from './HelpeeProfilePage';
 import HelperProfilePage from './HelperProfilePage';
 import CustomButton from '../CustomButton';
@@ -14,6 +14,9 @@ export interface State {
 }
 
 class ProfileScreen extends React.Component<Props, State> {
+	static navigationOptions: StaticNavigationOptions<{}> = props => ({
+		headerTitle: 'Profile',
+	});
 	state: State = {
 		isHelpee: true,
 	};
