@@ -58,7 +58,9 @@ class ActivityCard extends React.Component<Props, State> {
 						}}
 						onPress={props.acceptRequest}
 					>
-						<Text style={styles.title}>Accept</Text>
+						<Text style={styles.title}>
+							{cardData.completed ? 'Completed' : 'Accept'}
+						</Text>
 					</TouchableOpacity>
 				</View>
 			</View>

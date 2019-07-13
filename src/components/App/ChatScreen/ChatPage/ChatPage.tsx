@@ -72,7 +72,11 @@ class ChatPage extends React.Component<Props, State> {
 							onPress={props.completeRequest}
 						>
 							<View style={{ marginTop: 6, marginRight: 6 }}>
-								<Ionicons name="md-checkbox" size={44} color={primary} />
+								<Ionicons
+									name="md-checkbox"
+									size={44}
+									color={props.isHelpee ? primary : 'lightgreen'}
+								/>
 							</View>
 						</TouchableOpacity>
 					)}
@@ -94,7 +98,11 @@ class ChatPage extends React.Component<Props, State> {
 						onPress={handlePress}
 					>
 						<View style={{ marginTop: 6, marginRight: 6 }}>
-							<Ionicons name="ios-send" size={44} color={primary} />
+							<Ionicons
+								name="ios-send"
+								size={44}
+								color={props.isHelpee ? primary : 'lightgreen'}
+							/>
 						</View>
 					</TouchableOpacity>
 				</View>
